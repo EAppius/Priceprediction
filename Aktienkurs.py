@@ -6,11 +6,11 @@ import pandas_datareader.data as web
 
 style.use('ggplot')
 
-start = dt.datetime(2000,1,1)
-end = dt.datetime(2016,12,31)
+start = dt.datetime(2017,1,1)
+end = dt.datetime(2017,12,31)
 
 df = web.DataReader('SIN', 'yahoo', start, end)
-print(df.head(20))
+print(df.head(30))
 
 
 print("test edit")
