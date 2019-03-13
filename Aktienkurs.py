@@ -14,3 +14,15 @@ print(df.head(30))
 
 
 print("test edit")
+
+df.to_csv('TSLA.csv')
+
+df = pd.read_csv('tsla.csv', parse_dates=True, index_col=0)
+
+df.plot()
+plt.show()
+
+df['Adj Close'].plot()
+plt.show()
+
+df[['High','Low']]
