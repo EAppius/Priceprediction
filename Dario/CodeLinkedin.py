@@ -18,7 +18,7 @@ driver = webdriver.Safari()
 driver.maximize_window()
 
 driver.get(main_url)
-time.sleep(4)
+time.sleep(6)
 
 
 
