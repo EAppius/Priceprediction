@@ -15,7 +15,7 @@ main_url = "https://www.linkedin.com"
 source = "Linkedin.com"
 
 
-driver = webdriver.Safari()
+driver = webdriver.chrome()
 driver.maximize_window()
 
 driver.get(main_url)
