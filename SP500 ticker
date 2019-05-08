@@ -8,8 +8,8 @@ table.head(520)
 sliced_table = table[1:]
 header = table.iloc[0]
 
-corrected_table = .sliced_table.rename(columns=header)
+corrected_table = sliced_table.rename(columns=header)
 corrected_table
 
 tickers = corrected_table['Symbol'].tolist()
-print (tickers
+print (tickers)
