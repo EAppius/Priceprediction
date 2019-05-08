@@ -21,7 +21,7 @@ driver.maximize_window()
 driver.get(main_url)
 time.sleep(4)
 
-print("Type in keyword ...")
+print("Type in keyword to search in linkedin ...")
 
 element = driver.find_element_by_xpath("""//*[@id="login-email"]""")
 element.send_keys(str("dario.jussel@bluewin.ch"))
