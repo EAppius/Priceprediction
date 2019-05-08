@@ -1,2 +1,0 @@
-@Flavio ulpoad dein SP500 Code für die Ticker
-@
