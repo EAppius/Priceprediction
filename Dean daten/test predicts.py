@@ -11,7 +11,6 @@ import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
 
-
 dataset = pd.read_csv("/content/drive/My Drive/IC Tech/IC Test/sp500_joined_closes_correct.csv", delimiter = ";")
 #print(dataset)
 #y = dataset.iloc[:,0]
@@ -37,3 +36,13 @@ X_train, y_train = np.array(X_train), np.array(y_train)
 
 # Reshaping
 X_train = np.reshape(X_train, (X_train.shape[0], X_train.shape[1], 1))
+
+
+
+# Part 2 - Building the RNN
+
+# Importing the Keras libraries and packages
+from keras.models import Sequential
+from keras.layers import Dense
+from keras.layers import LSTM
+from keras.layers import Dropout
