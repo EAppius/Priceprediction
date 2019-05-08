@@ -5,10 +5,10 @@ data = pd.read_html('https://en.wikipedia.org/wiki/List_of_S%26P_500_companies')
 table = data[0]
 table.head(520)
 
-sliced_table = table[0:]
+sliced_table = table[1:]
 header = table.iloc[0]
 
-corrected_table = .sliced_table.rename(columnns=header)
+corrected_table = .sliced_table.rename(columns=header)
 corrected_table
 
 tickers = corrected_table['Symbol'].tolist()
