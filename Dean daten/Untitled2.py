@@ -20,3 +20,9 @@ from sklearn.preprocessing import MinMaxScaler
 from sklearn.metrics import mean_squared_error
 import matplotlib.pyplot as plt
 import math
+
+np.random.seed(7)
+
+#load the dataset
+msft_dataset = pd.read_csv('C:/Users/appiu/Downloads/sp500_joined_closes_1.csv')
+msft_dataset.head()
