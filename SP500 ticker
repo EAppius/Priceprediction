@@ -13,3 +13,11 @@ corrected_table
 
 tickers = corrected_table['Symbol'].tolist()
 print (tickers)
+
+import csv
+with open(r'C:\Users\flavio.hartmann\Desktop\EY Laptop Priavte Data\Studium\Master\UNISG\Unterlagen\2019-02 FS\IC Technology und Market Intelligence\Gruppenarbeit\Webcrawling\SP500.csv', 'w', newline='') as csvFile:
+    w = csv.writer(csvFile)
+    for item in tickers:
+        w.writerow([item])
+
+        csvFile.close()
