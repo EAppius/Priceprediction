@@ -20,4 +20,4 @@ with open(r'C:\Users\flavio.hartmann\Desktop\EY Laptop Priavte Data\Studium\Mast
     for item in tickers:
         w.writerow([item])
 
-        csvFile.close()
+csvFile.close()
