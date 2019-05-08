@@ -9,3 +9,14 @@ def set_keras_backend(backend):
         assert K.backend() == backend
 
 set_keras_backend("cntk")
+
+import numpy as np # linear algebra
+import pandas as pd # data processing, CSV file I/O (e.g. pd.read_csv)
+from keras.layers.core import Dense, Activation, Dropout
+from keras.layers.recurrent import LSTM
+from keras.models import Sequential
+from sklearn.cross_validation import  train_test_split
+from sklearn.preprocessing import MinMaxScaler
+from sklearn.metrics import mean_squared_error
+import matplotlib.pyplot as plt
+import math
