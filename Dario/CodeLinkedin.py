@@ -18,7 +18,7 @@ driver = webdriver.Safari()
 driver.maximize_window()
 
 driver.get(main_url)
-time.sleep(5)
+time.sleep(4)
 
 
 
@@ -29,9 +29,9 @@ element.send_keys(str("<ENTER USERS EMAIL>"))
 element = driver.find_element_by_xpath("""//*[@id="login-password"]""")
 element.send_keys(str("<ENTER USERS PASSWORD"))
 element.send_keys(Keys.ENTER)
-time.sleep(5)
+time.sleep(4)
 element = driver.find_element_by_xpath("""//*[@id="jobs-tab-icon"]""").click()
-time.sleep(5)
+time.sleep(4)
 '''
 #Loop für ausgewählte Unternehmen oder einzelne Unternehmen eingeben!
 '''
@@ -44,7 +44,7 @@ element.send_keys(str("<ENTER COMPANY>"))
 element = driver.find_element_by_xpath("""//*[@id="location-box-input"]""")
 element.send_keys(str("Schweiz"))
 element.send_keys(Keys.ENTER)
-time.sleep(5)
+time.sleep(4)
 element = driver.find_element_by_xpath("""/html/body/main/div[2]/div/div[1]/p/span""")
 print(element.text)
 print("on <ENTER DATE>")
