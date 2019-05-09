@@ -79,5 +79,11 @@ regressor.fit(X_train, y_train, epochs = 50, batch_size = 32)
 # Part 3 - Making the predictions and visualising the results
 
 # Getting the real stock price of 2017
+real_stock_price = dataset_test.iloc[:,[0,DATA_COLUMN]].values
 
-real_stock_price = dataset_test.iloc[,[,]].values
+# Getting the predicted stock price of 2017
+dataset_total = dataset.iloc[:,[0,DATA_COLUMN]]
+inputs = dataset_total[len(dataset_total) - len(dataset_test) - 60:].values
+inputs = inputs.reshape(-1,1)
+inputs = sctransform(inputs)
+X_test = []
