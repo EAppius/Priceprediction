@@ -98,9 +98,7 @@ predicted_stock_price = sc.inverse_transform(predicted_stock_price)
 plt.plot(real_stock_price, color = 'red', label = 'Real Google Stock Price')
 plt.plot(predicted_stock_price, color = 'blue', label = 'Predicted Google Stock Price')
 plt.title('Stock Price Prediction')
-
 plt.xlabel('Time')
 plt.ylabel('Google Stock Price')
-
 plt.legend()
 plt.show()
