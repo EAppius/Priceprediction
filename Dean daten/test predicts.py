@@ -74,3 +74,10 @@ regressor.compile(optimizer = 'adam', loss = 'mean_squared_error')
 
 # Fitting the RNN to the Training set
 regressor.fit(X_train, y_train, epochs = 50, batch_size = 32)
+
+
+# Part 3 - Making the predictions and visualising the results
+
+# Getting the real stock price of 2017
+
+real_stock_price = dataset_test.iloc[,[,]].values
