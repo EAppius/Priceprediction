@@ -38,3 +38,15 @@ dataset.dtypes
 dataset.set_index('date',inplace=True)
 dataset.info()
 dataset.sort_index(inplace=True)
+
+#extract just close prices as that is what we want to predict
+close = dataset[COLUMN]
+close = close.values.reshape(len(close), 1)
+plt.plot(close)
+plt.show()
+
+#normalize data
+scaler = MinMaxScaler(feature_range=(0,1))
+
+close = scaler.fit_transform(close)
+close
