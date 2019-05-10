@@ -32,3 +32,9 @@ dataset = dataset[dataset['date'].notnull() & dataset[COLUMN].notnull()]
 
 dataset.head()
 dataset.dtypes
+
+#dataset['date'] = pd.to_datetime(dataset['date'])
+#dataset[COLUMN] = pd.to_numeric(dataset[COLUMN], downcast='string')
+dataset.set_index('date',inplace=True)
+dataset.info()
+dataset.sort_index(inplace=False)
