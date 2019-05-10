@@ -73,3 +73,23 @@ series = 5
 
 trainX, trainY = create_ts(train, series)
 testX, testY = create_ts(test, series)
+
+#reshape into  LSTM format - samples, steps, features
+trainX = np.reshape(trainX, (trainX.shape[0], trainX.shape[1], 1))
+testX = np.reshape(testX, (testX.shape[0], testX.shape[1], 1))
+
+model = Sequential()
+model.add(LSTM(16, dropout=0.0, input_shape=(series, 1)))
+model.add(Dense(16, activation='tanh'))#test sigmoid or tanh instead of relu
+model.add(Dense(1))
+model.add(Activation('relu'))#uses sigmoid because binary classifier
+model.summary()
+
+"""
+#build the model
+model = Sequential()
+model.add(LSTM(32, input_shape=(series, 1)))
+model.add(Dense(1))"""
+model.compile(loss='mse', optimizer='adam')
+#fit the model
+model.fit(trainX, trainY, epochs=100, batch_size=32)#, validation_data = (testX, trainY))
