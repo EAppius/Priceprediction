@@ -93,3 +93,12 @@ model.add(Dense(1))"""
 model.compile(loss='mse', optimizer='adam')
 #fit the model
 model.fit(trainX, trainY, epochs=100, batch_size=32)#, validation_data = (testX, trainY))
+
+#test this model out
+trainPredictions = model.predict(trainX)
+testPredictions = model.predict(testX)
+#unscale predictions
+trainPredictions = scaler.inverse_transform(trainPredictions)
+testPredictions = scaler.inverse_transform(testPredictions)
+trainY = scaler.inverse_transform([trainY])
+testY = scaler.inverse_transform([testY])
