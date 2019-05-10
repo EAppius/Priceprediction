@@ -50,3 +50,26 @@ scaler = MinMaxScaler(feature_range=(0,1))
 
 close = scaler.fit_transform(close)
 close
+
+#split data into train and test
+train_size = int(len(close)* 0.7)
+test_size = len(close) - train_size
+
+train, test = close[0:train_size, :], close[train_size:len(close), :]
+
+print('Split data into train and test: ', len(train), len(test))
+
+#need to now convert the data into time series looking back over a period of days...e.g. use last 7 days to predict price
+
+def create_ts(ds, series):
+    X, Y =[], []
+    for i in range(len(ds)-series - 1):
+        item = ds[i:(i+series), 0]
+        X.append(item)
+        Y.append(ds[i+series, 0])
+    return np.array(X), np.array(Y)
+
+series = 5
+
+trainX, trainY = create_ts(train, series)
+testX, testY = create_ts(test, series)
