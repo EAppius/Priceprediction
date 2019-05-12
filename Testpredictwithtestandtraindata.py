@@ -102,3 +102,47 @@ trainPredictions = scaler.inverse_transform(trainPredictions)
 testPredictions = scaler.inverse_transform(testPredictions)
 trainY = scaler.inverse_transform([trainY])
 testY = scaler.inverse_transform([testY])
+
+#lets calculate the root mean squared error
+trainScore = math.sqrt(mean_squared_error(trainY[0], trainPredictions[:, 0]))
+testScore = math.sqrt(mean_squared_error(testY[0], testPredictions[:, 0]))
+print('Train score: %.2f rmse', trainScore)
+print('Test score: %.2f rmse', testScore)
+
+#lets plot the predictions on a graph and see how well it did
+train_plot = np.empty_like(close)
+train_plot[:,:] = np.nan
+train_plot[series:len(trainPredictions)+series, :] = trainPredictions
+
+test_plot = np.empty_like(close)
+test_plot[:,:] = np.nan
+test_plot[len(trainPredictions)+(series*2)+1:len(close)-1, :] = testPredictions
+
+#plot on graph
+plt.plot(scaler.inverse_transform(close))
+plt.plot(train_plot)
+plt.plot(test_plot)
+plt.show()
+
+import csv
+
+train = []
+test = []
+for i in trainPredictions:
+  for i in i:
+    train.append(i)
+
+print(train)
+
+for i in testPredictions:
+  for i in i:
+    test.append(i)
+
+print(test)
+
+with open('/content/drive/My Drive/IC Tech/IC Test/test.csv', mode='w') as file:
+    file_writer = csv.writer(file, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
+    file_writer.writerow(dataset.index)
+    file_writer.writerow(train)
+    file_writer.writerow(test)
+    file_writer.writerow(dataset[COLUMN])
