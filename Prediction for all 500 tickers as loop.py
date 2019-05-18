@@ -1,9 +1,3 @@
-#https://github.com/johndehavilland/deeplearningseries/blob/master/stock_price_predictor.ipynb
-#Mount Google Drive to the Colab Env
-#On left Menu-->Files-->download desired gdrive files
-from google.colab import drive
-drive.mount('/content/drive/')
-
 from keras import backend as K
 import os
 from importlib import reload
@@ -18,14 +12,20 @@ from sklearn.metrics import mean_squared_error
 import matplotlib.pyplot as plt
 import math
 
-dt = pd.read_csv('/content/drive/My Drive/IC Tech/IC Test/sp500_joined_closes_correct.csv', delimiter = ";")
+
+##### Dateipfad angeben, wo mit GitKraken die GitHub Repo lokal gespeichert wurde ######
+#für Dean's Computer
+DATEIPFAD = "C:/Users/lea_m/Dropbox/Documents/MBI 3/IC Tech und Market Intelligence/Short"
+
+
+dt = pd.read_csv('{}/Data/Historical data/sp500_joined_closes.csv'.format(DATEIPFAD), delimiter = ",")
 
 meansqrd = []
 iterdt = iter(dt)
 next(iterdt)
 for COLUMN in iterdt:
 
-  directory = os.listdir('/content/drive/My Drive/IC Tech/IC Test/predictions/')
+  directory = os.listdir('{}/Data/Prediction data/by_ticker/'.format(DATEIPFAD))
 
   try:
     a = directory.index(COLUMN+'.csv')
@@ -37,7 +37,7 @@ for COLUMN in iterdt:
 
     #load the dataset
 
-    dataset = pd.read_csv('/content/drive/My Drive/IC Tech/IC Test/sp500_joined_closes_correct.csv', delimiter = ";")
+    dataset = pd.read_csv('{}/Data/Historical data/sp500_joined_closes.csv'.format(DATEIPFAD), delimiter = ";")
 
     # Delete All NaN values from columns -> ['description','rate']
     dataset = dataset[dataset['date'].notnull() & dataset[COLUMN].notnull()]
@@ -157,7 +157,7 @@ for COLUMN in iterdt:
 
 
       #save CSV with predictions for plotting in Tableau
-      with open('/content/drive/My Drive/IC Tech/IC Test/predictions/{}.csv'.format(COLUMN), mode='w') as file:
+      with open('{}/Data/Prediction data/by_ticker/{}.csv'.format(DATEIPFAD, COLUMN), mode='w') as file:
           file_writer = csv.writer(file, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
           file_writer.writerow(dataset.index)
           file_writer.writerow(train)
@@ -166,6 +166,6 @@ for COLUMN in iterdt:
 
 
 #create CSV with list of Mean SQRD ERRORS
-with open('/content/drive/My Drive/IC Tech/IC Test/predictions/meansqrd_list.csv', mode='w') as file:
+with open('{}/Data/Prediction data/mean_sqrd_errors.csv'.format(DATEIPFAD), mode='w') as file:
   file_writer = csv.writer(file, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
   file_writer.writerow(meansqrd)
