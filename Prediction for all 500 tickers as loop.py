@@ -37,7 +37,7 @@ for COLUMN in iterdt:
 
     #load the dataset
 
-    dataset = pd.read_csv('{}/Data/Historical data/sp500_joined_closes.csv'.format(DATEIPFAD), delimiter = ";")
+    dataset = pd.read_csv('{}/Data/Historical data/sp500_joined_closes.csv'.format(DATEIPFAD), delimiter = ",")
 
     # Delete All NaN values from columns -> ['description','rate']
     dataset = dataset[dataset['date'].notnull() & dataset[COLUMN].notnull()]
