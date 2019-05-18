@@ -1,15 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ba789aac-d4e5-4982-8924-aca776ea9715" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Aktienkurs.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Protokoll 15.05.2019.docx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/S&amp;P500 historische Daten abrufen.py" beforeDir="false" afterPath="$PROJECT_DIR$/S&amp;P500 historische Daten abrufen.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SP500 ticker.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TSLA.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/copyoftestpredictioniwithtestandtrain.py" beforeDir="false" />
-    </list>
+    <list default="true" id="ba789aac-d4e5-4982-8924-aca776ea9715" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,8 +13,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/S&amp;P500 historische Daten abrufen.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2499">
-              <caret line="147" column="31" selection-start-line="147" selection-start-column="31" selection-end-line="147" selection-end-column="31" />
+            <state relative-caret-position="304">
+              <caret line="164" column="2" selection-start-line="164" selection-end-line="164" selection-end-column="16" />
               <folding>
                 <element signature="e#0#16#0" expanded="true" />
               </folding>
@@ -42,7 +34,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="39" />
     <option name="y" value="48" />
     <option name="width" value="297" />
@@ -96,7 +88,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1721" height="935" extended-state="7" />
+    <frame x="-7" y="-7" width="1721" height="935" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Favorites" side_tool="true" />
@@ -121,8 +113,8 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/S&amp;P500 historische Daten abrufen.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2499">
-          <caret line="147" column="31" selection-start-line="147" selection-start-column="31" selection-end-line="147" selection-end-column="31" />
+        <state relative-caret-position="304">
+          <caret line="164" column="2" selection-start-line="164" selection-end-line="164" selection-end-column="16" />
           <folding>
             <element signature="e#0#16#0" expanded="true" />
           </folding>

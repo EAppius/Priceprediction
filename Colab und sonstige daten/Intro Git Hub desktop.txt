@@ -1,6 +1,0 @@
-#Introduction on How to use Git Hub desktop?
-
-# 
-Creating a branch
-If you have collaborator permissions on a repository, you can create a branch off of the repository's default branch so you can safely experiment with changes.
-
