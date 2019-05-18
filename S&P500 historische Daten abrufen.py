@@ -18,13 +18,12 @@ from sklearn.ensemble import VotingClassifier, RandomForestClassifier
 
 ##### Dateipfad angeben, wo mit GitKraken die GitHub Repo lokal gespeichert wurde ######
 #für Dean's Computer
-DATEIPFAD = 'C:\Users\lea_m\Dropbox\Documents\MBI 3\IC Tech und Market Intelligence\Short'
+DATEIPFAD = "C:/Users/lea_m/Dropbox/Documents/MBI 3/IC Tech und Market Intelligence/Short"
 
 
 
-"""
-#Alternativer Webscraper um die S&P 500 Liste von Wikipedia zu lesen, welche wir jedoch doch noch ersetzt haben
 
+#Funktion mit welcher aus Wikipedia die liste der S&P500 Ticker gelesen werden und in ein CSV gespeichert wird
 def save_sp500_tickers():
     resp = requests.get('http://en.wikipedia.org/wiki/List_of_S%26P_500_companies')
     soup = bs.BeautifulSoup(resp.text, 'lxml')
@@ -32,20 +31,21 @@ def save_sp500_tickers():
     tickers = []
     counter = 0
     for row in table.findAll('tr')[1:]:
-      #####################only use first 10 tickers since BRK.A causes an issue
-      counter += 1
-      if counter < 11:
-      ###################### end filter first 10 tickers
         ticker = row.findAll('td')[0].text
+        ticker = ticker.replace("\n", "")
         tickers.append(ticker)
     with open("sp500tickers.pickle", "wb") as f:
         pickle.dump(tickers, f)
+    with open(r'{}/Data/S&P 500 lists/SP500.csv'.format(DATEIPFAD), 'w', newline='') as csvFile:
+        w = csv.writer(csvFile)
+        for item in tickers:
+            w.writerow([item])
     return tickers
+    csvFile.close()
 
 """
-
-#Funktion mit welcher aus Wikipedia die liste der S&P500 Ticker gelesen werden und in ein CSV gespeichert wird
-def save_sp500_tickers():
+#Alternativer Webscraper um die S&P 500 Liste von Wikipedia zu lesen, welche wir jedoch doch noch ersetzt haben
+def save_sp500_tickers2():
     data = pd.read_html('https://en.wikipedia.org/wiki/List_of_S%26P_500_companies')
 
     table = data[0]
@@ -61,13 +61,13 @@ def save_sp500_tickers():
     with open("sp500tickers.pickle", "wb") as f:
         pickle.dump(tickers, f)
     print(tickers)
-    with open(r'{}\Data\S&P 500 lists\SP500.csv'.format(DATEIPFAD), 'w', newline='') as csvFile:
+    with open(r'{}/Data/S&P 500 lists/SP500.csv'.format(DATEIPFAD), 'w', newline='') as csvFile:
         w = csv.writer(csvFile)
         for item in tickers:
             w.writerow([item])
     return tickers
     csvFile.close()
-
+"""
 
 
 #API Configuration für QUANDL
@@ -78,25 +78,25 @@ quandl.ApiConfig.api_key = api_key
 #Funktion um die Daten der einzelnen Ticker aus Quandl zu lesen und jeweils als CSV speichern
 def get_data_from_quandl(reload_sp500=True):
     if reload_sp500:
-        tickers = save_sp500_tickers2()
+        tickers = save_sp500_tickers()
     else:
         with open("sp500tickers.pickle", "rb") as f:
             tickers = pickle.load(f)
     if not os.path.exists('stock_dfs'):
         os.makedirs('stock_dfs')
-    tickers = save_sp500_tickers2()
+    tickers = save_sp500_tickers()
 
     start = "2017-01-01"  # dt.datetime(2010, 1, 1)
     end = "2019-01-01"  # dt.datetime.now()
 
     for ticker in tickers:
         # just in case your connection breaks, we'd like to save our progress!
-        if not os.path.exists('{}\Data\Historical data\by_ticker\{}.csv'.format(DATEIPFAD, ticker)):
+        if not os.path.exists('{}/Data/Historical data/by_ticker/{}.csv'.format(DATEIPFAD, ticker)):
 
             df = quandl.get_table('WIKI/PRICES', qopts={'columns': ['ticker', 'date', 'close', 'adj_close']},
                                   ticker=[ticker], date={'gte': start, 'lte': end})
 
-            df.to_csv('{}\Data\Historical data\by_ticker\{}.csv'.format(DATEIPFAD, ticker))
+            df.to_csv('{}/Data/Historical data/by_ticker/{}.csv'.format(DATEIPFAD, ticker))
 
         else:
             print('Already have {}'.format(ticker))
@@ -112,7 +112,7 @@ def compile_data():
     main_df = pd.DataFrame()
 
     for count, ticker in enumerate(tickers):
-        df = pd.read_csv('{}\Data\Historical data\by_ticker\{}.csv'.format(DATEIPFAD, ticker))
+        df = pd.read_csv('{}/Data/Historical data/by_ticker/{}.csv'.format(DATEIPFAD, ticker))
         df.set_index('date', inplace=True)
 
         df.rename(columns={'adj_close': ticker}, inplace=True)
@@ -126,17 +126,17 @@ def compile_data():
         if count % 10 == 0:
             print(count)
     print(main_df.head())
-    main_df.to_csv('{}\Data\Historical data\sp500_joined_closes.csv'.format(DATEIPFAD))
+    main_df.to_csv('{}/Data/Historical data/sp500_joined_closes.csv'.format(DATEIPFAD))
 
 
 
 
 #Funktion um die historischen Daten zu visualisieren um die Correlation zu sehen
 def visualize_data():
-    df = pd.read_csv('{}\Data\Historical data\sp500_joined_closes.csv'.format(DATEIPFAD))
+    df = pd.read_csv('{}/Data/Historical data/sp500_joined_closes.csv'.format(DATEIPFAD))
     df_corr = df.corr()
     print(df_corr.head())
-    df_corr.to_csv('{}\Data\Historical data\sp500corr.csv'.format(DATEIPFAD))
+    df_corr.to_csv('{}/Data/Historical data/sp500corr.csv'.format(DATEIPFAD))
     data1 = df_corr.values
     fig1 = plt.figure()
     ax1 = fig1.add_subplot(111)
@@ -178,7 +178,7 @@ visualize_data()
 #Funktion um die Grafik anzuschreiben
 def process_data_for_labels(ticker):
     hm_days = 7
-    df = pd.read_csv('{}\Data\Historical data\sp500_joined_closes.csv'.format(DATEIPFAD), index_col=0)
+    df = pd.read_csv('{}/Data/Historical data/sp500_joined_closes.csv'.format(DATEIPFAD), index_col=0)
     tickers = df.columns.values.tolist()
     df.fillna(0, inplace=True)
     for i in range(1, hm_days + 1):
