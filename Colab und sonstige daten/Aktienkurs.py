@@ -9,6 +9,10 @@ style.use('ggplot')
 start = dt.datetime(2017,1,1)
 end = dt.datetime(2017,12,31)
 
+
+df = web.DataReader('TSLA', 'yahoo', start, end)
+print(df.head(20))
+
 df = web.DataReader('SIN', 'yahoo', start, end)
 print(df.head(30))
 
@@ -29,3 +33,6 @@ ax1.plot(df.index, df['100ma'])
 ax2.bar(df.index, df['Volume'])
 
 plt.show()
+latest update
+
+#Get it now the test?
