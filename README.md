@@ -6,8 +6,9 @@ Der Code besteht aus den folgenden Phasen:
 2.	Auslesen der historischen Daten für alle S&P 500 Firmen mit QUANDL
 3.	Vorhersage der zukünftigen Bewegungen mit statistischen Analysen (LSTM Model)
 4.	Weitere Datensammlung und -analyse
-a.	Auslesen zusätzlicher relevanter Daten z.B. Gold-, Dollar- und Ölpreise. 
-b.	Sentiment-Analyse und Summarizer von Zeitungsartikeln
+4.1.	Auslesen zusätzlicher relevanter Daten z.B. Gold-, Dollar- und Ölpreise. 
+4.2.	Sentiment-Analyse und Summarizer von Zeitungsartikeln
+
 Das Ziel dieses Projektes ist es, relevante Börsendaten zu sammeln und zu analysieren um so ein Dashboard zusammenzustellen, welches private Investoren bei Investitionen mit kurzfristigem Zeithorizont unterstützen soll. 
 
 ## Anleitung
@@ -42,15 +43,15 @@ Um das Ziel eines umfangreichen und übersichtlichen Dashboards zu erreichen werd
 Zudem wurden Zeitungsartikel manuell herausgesucht. Diese werden mit dem Code im Pythondokument **Sentiment_Analysis_und_Summarizer.py** analysiert. Mit dem VaderSentiment Paket wird das Stimmungsniveau (=Sentiment) der einzelnen Zeitungsartikel analysiert. Mit dem Gensim Summarizer Paket werden dann noch Zusammenfassungen der Artikel kreiert. Die Resultate dieser Analyse werden wiederum als CSV gespeichert (unter «…\Short\Data\Manual News Data\Sentiment scores\»). Die Sentiment Resultate werden verwendet um zusätzliche Informationen aus den Nachrichten zu lesen, um auf einen steigenden oder sinkenden Kurs hindeuten. Des Weiteren wären die Zusammenfassungen ein möglicher Weg, die Zeitungsartikel in Kurzform den Nutzern verfügbar zu machen.  
 
 ## REQUIREMENTS (Python packages)
-•	gensim
-•	vaderSentiment
-•	pandas
-•	numpy
-•	sklearn
-•	matplotlib
-•	bs4
-•	quandl
-•	pandas_datareader
-•	keras
-•	tensorflow
-•	importlib
+*	gensim
+*	vaderSentiment
+*	pandas
+*	numpy
+*	sklearn
+*	matplotlib
+*	bs4
+*	quandl
+*	pandas_datareader
+*	keras
+*	tensorflow
+*	importlib
