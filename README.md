@@ -16,10 +16,10 @@ Um die oben genannten Resultate zu erreichen, müssen folgende Schritte verfolgt 
 1.	Installation sämtlicher Python Packages welche unter dem letzten Punkt «Requirements» dieses Dokuments aufgeführt sind
 2.	GitHub Repository mit GitKraken öffnen und somit eine **lokale Kopie** des GitHubs erstellen. 
 3.	Dateipfad der lokalen Github Kopie herauslesen bis und mit «…\Short»
-4.	Sämtliche Python Dokumente («Additional_Data_extraction.py», «Prediction_or_all 500_tickers_as_loop.py”, “Prediction_single_ticker.py”, “SP500_historische_Daten_abrufen.py” & “Sentiment_Analysis_and_Summarizer.py”) öffnen und im Code die Variable «DATEIPFAD», welche jeweils am Anfang des Dokuments steht mit dem lokalen GitHub Pfad ersetzen. 
+4.	Sämtliche Python Dokumente («Additional_Data_extraction.py», «Prediction_for_all 500_tickers_as_loop.py”, “Prediction_single_ticker.py”, “SP500_historische_Daten_abrufen.py” & “Sentiment_Analysis_and_Summarizer.py”) öffnen und im Code die Variable «DATEIPFAD», welche jeweils am Anfang des Dokuments steht mit dem lokalen GitHub Pfad ersetzen. 
 5.	«SP500_historische_Daten_abrufen.py» laufen lassen.
-6.	«Prediction_or_all 500_tickers_as_loop.py ” laufen lassen, wenn alle Resultate gebraucht werden. Es dauert mehrere Stunden, alle Ticker durchlaufen zu lassen.
-*	Alternativ «Predcition_single_ticker.py” im Code die Variable «COLUMN” (am Anfang des Codes suchen) und abändern, um den gewünschten S&P 500 Ticker einzugeben. 
+6.	«Prediction_for_all 500_tickers_as_loop.py ” laufen lassen, wenn alle Resultate gebraucht werden. Es dauert mehrere Stunden, alle Ticker durchlaufen zu lassen.
+*	Alternativ «Prediction_single_ticker.py” im Code die Variable «COLUMN” (am Anfang des Codes suchen) und abändern, um den gewünschten S&P 500 Ticker einzugeben. 
 7.	«Additional_Data_extraction.py» laufen lassen um weitere Informationen zu ziehen. In der Liste «lst» können hier weitere QUANDL Ticker hinzugefügt werden je nach Bedarf. 
 8.	«Sentiment_Analysis_and_Summarizer» laufen lassen, um vorher manuell erstellte CSV mit Zeitungsartikeln auf Sentiment zu analysieren und zusammenzufassen. CSV Dokument muss im Code ausgewählt werden. Drei Beispiele sind vorhanden, wobei immer zwei als Kommentar markiert werden müssen. 
 *	Beispieldokumente unter «…\Short\Data\Manual News Data\»
