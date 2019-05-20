@@ -6,8 +6,8 @@ Der Code besteht aus den folgenden Phasen:
 2.	Auslesen der historischen Daten für alle S&P 500 Firmen mit QUANDL
 3.	Vorhersage der zukünftigen Bewegungen mit statistischen Analysen (LSTM Model)
 4.	Weitere Datensammlung und -analyse
-*	Auslesen zusätzlicher relevanter Daten z.B. Gold-, Dollar- und Ölpreise. 
-*	Sentiment-Analyse und Summarizer von Zeitungsartikeln
+	1.	Auslesen zusätzlicher relevanter Daten z.B. Gold-, Dollar- und Ölpreise. 
+	2.	Sentiment-Analyse und Summarizer von Zeitungsartikeln
 
 Das Ziel dieses Projektes ist es, relevante Börsendaten zu sammeln und zu analysieren um so ein Dashboard zusammenzustellen, welches private Investoren bei Investitionen mit kurzfristigem Zeithorizont unterstützen soll. 
 
@@ -19,10 +19,10 @@ Um die oben genannten Resultate zu erreichen, müssen folgende Schritte verfolgt 
 4.	Sämtliche Python Dokumente («Additional_Data_extraction.py», «Prediction_for_all 500_tickers_as_loop.py”, “Prediction_single_ticker.py”, “SP500_historische_Daten_abrufen.py” & “Sentiment_Analysis_and_Summarizer.py”) öffnen und im Code die Variable «DATEIPFAD», welche jeweils am Anfang des Dokuments steht mit dem lokalen GitHub Pfad ersetzen. 
 5.	«SP500_historische_Daten_abrufen.py» laufen lassen.
 6.	«Prediction_for_all 500_tickers_as_loop.py ” laufen lassen, wenn alle Resultate gebraucht werden. Es dauert mehrere Stunden, alle Ticker durchlaufen zu lassen.
-*	Alternativ «Prediction_single_ticker.py” im Code die Variable «COLUMN” (am Anfang des Codes suchen) und abändern, um den gewünschten S&P 500 Ticker einzugeben. 
+	1.	Alternativ «Prediction_single_ticker.py” im Code die Variable «COLUMN” (am Anfang des Codes suchen) und abändern, um den gewünschten S&P 500 Ticker einzugeben. 
 7.	«Additional_Data_extraction.py» laufen lassen um weitere Informationen zu ziehen. In der Liste «lst» können hier weitere QUANDL Ticker hinzugefügt werden je nach Bedarf. 
 8.	«Sentiment_Analysis_and_Summarizer» laufen lassen, um vorher manuell erstellte CSV mit Zeitungsartikeln auf Sentiment zu analysieren und zusammenzufassen. CSV Dokument muss im Code ausgewählt werden. Drei Beispiele sind vorhanden, wobei immer zwei als Kommentar markiert werden müssen. 
-*	Beispieldokumente unter «…\Short\Data\Manual News Data\»
+	1.	Beispieldokumente unter «…\Short\Data\Manual News Data\»
 
 ## Auslesen der S&P500 Ticker
 Als erstes wird als Teil des Pythondokuments **S&P_historische_Daten_abrufen.py** die S&P500 Liste aus Wikipedia herausgelesen. Hierfür wird der Webscraper BeautifulSoup verwendet. Alternativ wurde auch ein Code mit den Pandas und Read_HTML Packages geschrieben. Mit diesen beiden Anwendungen werden die Ticker der 500 Firmen ausgelesen und in ein CSV Dokument gespeichert mit dem Namen SP500.csv, welches in den GitHub Ordner gespeichert wird (unter «…\Short\Data\S&P 500 lists\»).
