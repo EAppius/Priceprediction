@@ -5,7 +5,7 @@ Dieser Code wurde im Rahmen eines IC Kurses an der Universität St. Gallen gesch
 Der Code besteht aus den folgenden Phasen:
 1.	Auslesen der S&P 500 Ticker von Wikipedia (modifizierter Code)
 2.	Auslesen der historischen Daten für alle S&P 500 Firmen mit QUANDL (selbst erstellt)
-3.	Vorhersage der zukünftigen Bewegungen mit statistischen Analysen (LSTM Model) (selbst erstellt in anlehnung an diverse Vorlagen)
+3.	Vorhersage der zukünftigen Bewegungen mit statistischen Analysen (LSTM Model) (selbst erstellt in Anlehnung an diverse Vorlagen)
 4.	Weitere Datensammlung und -analyse (selbst erstellt)
 	1.	Auslesen zusätzlicher relevanter Daten z.B. Gold-, Dollar- und Ölpreise. 
 	2.	Sentiment-Analyse und Summarizer von Zeitungsartikeln (selbst erstellt jedoch viel vom VaderSentiment Package vorgegeben)
